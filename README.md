@@ -1,58 +1,49 @@
 # basic_sqlite_ruby
 
-# Task
-Part 00
-Create a class called MySqliteRequest in my_sqlite_request.rb. It will have a similar behavior than a request on the real sqlite.
+## Description
 
-All methods, except run, will return an instance of my_sqlite_request. You will build the request by progressive call and execute the request by calling run.
+This project reconstructs SQLite's basic functionality from scratch in Ruby. It supports CRUD operations through a custom API.
 
-Each row must have an ID.
+## Features
 
-We will do only 1 join and 1 where per request.
+**MySqliteRequest Class**: Found in `my_sqlite_request.rb`, this class mimics SQLite's functionality, allowing queries to be built through method chaining and executed with the `.run` method. Each record requires an ID, with support for one join and one where clause per query.
+  
+**Command Line Interface (CLI)**: Utilizes the `readline` library to provide a user-friendly CLI for database operations, executable with `ruby my_sqlite_cli.rb`. The CLI supports:
+  - SELECT|INSERT|UPDATE|DELETE with up to one WHERE condition.
+  - JOIN operations with up to one ON condition.
 
-Part 01
-Create a program which will be a Command Line Interface (CLI) to your MySqlite class. It will use readline and we will run it with ruby my_sqlite_cli.rb.
+The project uses CSV files as a database, making it easy to work with data using Ruby's CSV library.
 
-It will accept request with:
+## Installation
 
-SELECT|INSERT|UPDATE|DELETE
-FROM
-WHERE (max 1 condition)
-JOIN ON (max 1 condition) Note, you can have multiple WHERE
-Description
-Used the CSV library for retrieving and manipulating data within them.
+Before running the project, ensure Ruby is installed on your system. If Ruby is not installed, visit [the official Ruby website](https://www.ruby-lang.org/en/downloads/) for installation instructions.
 
-Used Readline to get prompts from the CLI, parsing them into an object that is to be used in different requests.
+## Usage
 
-# Installation
-N/a
+To start the CLI, run:
+```bash
+ruby my_sqlite_cli.rb
+```
 
-# Usage
-CLI requests
-ruby my_sqlite_cli.rb to open cli prompt
-
-perform various queries such as:
-
-SELECT * FROM nba_player_data.csv; SELECT name, age FROM nba_player_data.csv; SELECT name, birth_city FROM nba_player_data.csv JOIN nba_players.csv ON name=Player;
-
+Example queries:
+```sql
+SELECT * FROM nba_player_data.csv;
+SELECT name, age FROM nba_player_data.csv;
+SELECT name, birth_city FROM nba_player_data.csv JOIN nba_players.csv ON name=Player;
 INSERT INTO nba_player_data.csv VALUES (name, year_start, year_end, position, height, weight, birth_date, college);
+UPDATE nba_player_data.csv SET name = 'Updated Name', year_start = '99' WHERE name = 'Original Name';
+DELETE FROM nba_player_data.csv WHERE name = 'Updated Name';
+```
 
-UPDATE nba_player_data.csv SET name = 'name Updated', year_start = '99' WHERE name = 'name';
+## Running Tests
 
-DELETE FROM nba_player_data.csv WHERE name = 'name Updated';
-
-...etc
-
-Running tests
+For testing, execute:
+```bash
 ruby my_sqlite_request_test.rb && TEST=true ruby my_sqlite_cli_test.rb
+```
+The tests are structured to comprehensively cover the variety of request types, featuring 13 tests and 27 assertions for extensive code coverage.
 
-Should result in a total of 13 tests and 27 test assertions for coverage of each type of request.
-
-# The Core Team
+## The Core Team
 Made collaboratively by:
-rswhipple aka Rebecca Whipple Silverstein
-    and 
-yogimathius aka Mathius Johnson
-
-Made at Qwasar SV -- Software Engineering School <img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px' />
+Mathius Johnson and Rebecca Whipple Silverstein
 
