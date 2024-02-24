@@ -4,11 +4,9 @@
 
 This project reconstructs SQLite's basic functionality from scratch in Ruby. It supports CRUD operations through a custom API.
 
-## Features
-
 **MySqliteRequest Class**: Found in `my_sqlite_request.rb`, this class mimics SQLite's functionality, allowing queries to be built through method chaining and executed with the `.run` method. Each record requires an ID, with support for one join and one where clause per query.
   
-**Command Line Interface (CLI)**: Utilizes the `readline` library to provide a user-friendly CLI for database operations, executable with `ruby my_sqlite_cli.rb`. The CLI supports:
+**Command Line Interface (CLI)**: Uses the `readline` library and a modular parsing system to interpret queries, executable with `ruby my_sqlite_cli.rb`. The CLI supports:
   - SELECT|INSERT|UPDATE|DELETE with up to one WHERE condition.
   - JOIN operations with up to one ON condition.
 
@@ -16,7 +14,7 @@ The project uses CSV files as a database, making it easy to work with data using
 
 ## Installation
 
-Before running the project, ensure Ruby is installed on your system. If Ruby is not installed, visit [the official Ruby website](https://www.ruby-lang.org/en/downloads/) for installation instructions.
+Before running the project, make sure Ruby is installed on your system. If Ruby is not installed, visit [the official Ruby website](https://www.ruby-lang.org/en/downloads/) for installation instructions.
 
 ## Usage
 
@@ -41,7 +39,7 @@ For testing, execute:
 ```bash
 ruby my_sqlite_request_test.rb && TEST=true ruby my_sqlite_cli_test.rb
 ```
-The tests are structured to comprehensively cover the variety of request types, featuring 13 tests and 27 assertions for extensive code coverage.
+The tests are structured to comprehensively cover the variety of request types, featuring 13 tests and 27 assertions.
 
 ## The Core Team
 Made collaboratively by:
