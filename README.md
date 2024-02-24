@@ -4,9 +4,9 @@
 
 This project reconstructs SQLite's basic functionality from scratch in Ruby. It supports CRUD operations through a custom API.
 
-**MySqliteRequest Class**: Found in `my_sqlite_request.rb`, this class mimics SQLite's functionality, allowing queries to be built through method chaining and executed with the `.run` method. Each record requires an ID, with support for one join and one where clause per query.
+**MySqliteRequest Class**: This class mimics SQLite's functionality, allowing queries to be built through method chaining and executed with the `.run` method. Each record requires an ID, with support for one join and one where clause per query.
   
-**Command Line Interface (CLI)**: Uses the `readline` library and a modular parsing system to interpret queries, executable with `ruby my_sqlite_cli.rb`. The CLI supports:
+**Command Line Interface (CLI)**: Uses the `readline` library and a modular parsing system to interpret queries. The CLI supports:
   - SELECT|INSERT|UPDATE|DELETE with up to one WHERE condition.
   - JOIN operations with up to one ON condition.
 
